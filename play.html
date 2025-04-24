@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>播放音频</title>
+    <style>
+        body {
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        #playContainer {
+            margin-top: 20px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        audio {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>音频播放</h1>
+    <div id="playContainer">
+        <img id="patternImage" src="" alt="图案加载中...">
+        <audio id="audioPlayer" controls>
+            <source id="audioSource" src="" type="audio/wav">
+            您的浏览器不支持音频播放。
+        </audio>
+    </div>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const imgSrc = urlParams.get("img");
+        const audioSrc = urlParams.get("audio");
+
+        document.getElementById("patternImage").src = imgSrc;
+        document.getElementById("audioSource").src = audioSrc;
+        document.getElementById("audioPlayer").load();
+    </script>
+</body>
+</html>
